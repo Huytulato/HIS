@@ -12,14 +12,18 @@ type Props = {
 export default function Header({ currentView }: Props) {
   const getBreadcrumb = () => {
     switch (currentView) {
-      case "province": return "Tỉnh/thành phố";
-      case "district": return "Huyện/thị xã";
-      case "ward": return "Xã/phường";
-      default: return "";
+      case "province":
+        return "Tỉnh/Thành phố";
+      case "district":
+        return "Huyện/Quận";
+      case "ward":
+        return "Xã/Phường";
+      default:
+        return "";
     }
   };
 
-  const menuItems: MenuProps['items'] = [
+  const menuItems: MenuProps["items"] = [
     {
       key: "logout",
       icon: <LogoutOutlined />,
@@ -44,7 +48,7 @@ export default function Header({ currentView }: Props) {
 
         <Dropdown menu={{ items: menuItems }} placement="bottomRight">
           <div className={styles.userInfo}>
-            <EditOutlined style={{ fontSize: 18, color: '#ffffff' }} />
+            <EditOutlined style={{ fontSize: 18, color: "#ffffff" }} />
           </div>
         </Dropdown>
       </div>

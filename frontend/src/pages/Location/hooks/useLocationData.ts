@@ -1,28 +1,55 @@
 import { useState, useMemo } from "react";
-import { PROVINCES, DISTRICTS, WARDS } from "../constants";
+import { useParams, useNavigate } from "react-router-dom";
+import useSWR from "swr";
+import { locationApi } from "../../../services/locationApi";
 import { ViewType } from "../types";
 
 export const useLocationData = () => {
-  const [currentView, setCurrentView] = useState<ViewType>("province");
+  const { view } = useParams<{ view: string }>();
+  const navigate = useNavigate();
+  const currentView = (view || "province") as ViewType;
+
+  // Use a function to trigger navigation
+  const setCurrentView = (newView: ViewType) => {
+    navigate(`/location/${newView}`);
+  };
   const [searchCode, setSearchCode] = useState("");
   const [searchName, setSearchName] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Use SWR for data fetching and deduplication based on Vercel React best practices (`client-swr-dedup`)
+  const { data: provinces = [] } = useSWR(
+    currentView === "province" ? "/api/locations/provinces" : null,
+    locationApi.getProvinces
+  );
+
+  const { data: districts = [] } = useSWR(
+    currentView === "district" ? "/api/locations/districts" : null,
+    locationApi.getDistricts
+  );
+
+  const { data: wards = [] } = useSWR(
+    currentView === "ward" ? "/api/locations/wards" : null,
+    locationApi.getWards
+  );
+
   const data = useMemo(() => {
     switch (currentView) {
       case "province":
-        return PROVINCES;
+        return provinces;
       case "district":
-        return DISTRICTS;
+        return districts;
       case "ward":
-        return WARDS;
+        return wards;
+      default:
+        return [];
     }
-  }, [currentView]);
+  }, [currentView, provinces, districts, wards]);
 
   const filtered = useMemo(() => {
     return data.filter(
-      (item: any) =>
+      (item: { code: string; name: string }) =>
         item.code.toLowerCase().includes(searchCode.toLowerCase()) &&
         item.name.toLowerCase().includes(searchName.toLowerCase()),
     );

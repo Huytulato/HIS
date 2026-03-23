@@ -1,6 +1,24 @@
 import { Table, Pagination } from "antd";
+import type { ColumnsType } from "antd/es/table";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import styles from "./Table.module.scss";
+
+interface LocationItem {
+  id?: string | number;
+  code: string;
+  name: string;
+  provinceName?: string;
+}
+
+interface DataTableProps {
+  data: LocationItem[];
+  currentView: string;
+  totalRecords: number;
+  rowsPerPage: number;
+  currentPage: number;
+  setRowsPerPage: (size: number) => void;
+  setCurrentPage: (page: number) => void;
+}
 
 export default function DataTable({ 
   data, 
@@ -10,18 +28,18 @@ export default function DataTable({
   currentPage,
   setRowsPerPage,
   setCurrentPage
-}: any) {
+}: DataTableProps) {
   const isDistrict = currentView === 'district';
   const isWard = currentView === 'ward';
 
-  const baseColumns: any = [
+  const baseColumns: ColumnsType<LocationItem> = [
     { 
       title: "STT", 
       dataIndex: "index", 
       key: "index", 
       align: "center", 
       width: 60,
-      render: (_: any, __: any, index: number) => (currentPage - 1) * rowsPerPage + index + 1
+      render: (_: unknown, __: LocationItem, index: number) => (currentPage - 1) * rowsPerPage + index + 1
     }
   ];
 
@@ -30,8 +48,8 @@ export default function DataTable({
     baseColumns.push({ title: "Tên xã/phường", dataIndex: "name", key: "name" });
   } else if (isDistrict) {
     baseColumns.push({ title: "Tên tỉnh/TP", dataIndex: "provinceName", key: "provinceName" });
-    baseColumns.push({ title: "Mã huyện/thị xã", dataIndex: "code", key: "code" });
-    baseColumns.push({ title: "Tên huyện/thị xã", dataIndex: "name", key: "name" });
+    baseColumns.push({ title: "Mã huyện/quận", dataIndex: "code", key: "code" });
+    baseColumns.push({ title: "Tên huyện/quận", dataIndex: "name", key: "name" });
   } else {
     // province
     baseColumns.push({ title: "Mã tỉnh/TP", dataIndex: "code", key: "code" });

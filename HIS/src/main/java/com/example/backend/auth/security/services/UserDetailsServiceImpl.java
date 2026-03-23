@@ -7,17 +7,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.backend.auth.models.User;
+import com.example.backend.auth.entity.User;
 import com.example.backend.auth.repository.UserRepository;
-import com.example.backend.access.services.AccessService;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
   @Autowired
   UserRepository userRepository;
-
-  @Autowired
-  AccessService accessService;
 
   @Override
   @Transactional
@@ -25,7 +21,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     User user = userRepository.findByUsername(username)
         .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + username));
 
-    var permissions = accessService.getPermissionCodesByUserId(user.getId());
-    return UserDetailsImpl.build(user, permissions);
+    return UserDetailsImpl.build(user);
   }
 }

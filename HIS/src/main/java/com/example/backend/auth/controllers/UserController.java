@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backend.auth.models.User;
+import com.example.backend.auth.entity.User;
 import com.example.backend.auth.repository.UserRepository;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

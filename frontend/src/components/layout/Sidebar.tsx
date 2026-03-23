@@ -14,7 +14,7 @@ const MENU_ITEMS = [
   { key: "loai-chinh-sach", label: "Loại chính sách" },
   { key: "phuong-thuc-dat-hen", label: "Phương thức đặt hẹn" },
   { key: "ly-do-tham-kham", label: "Lý do thăm khám" },
-  { key: "district", label: "Huyện/thị xã" },
+  { key: "district", label: "Huyện/Quận" },
   { key: "ward", label: "Xã/phường" },
   { key: "province", label: "Tỉnh/thành phố" },
   { key: "danh-muc-the", label: "Danh mục thẻ" },
@@ -32,10 +32,12 @@ const MENU_ITEMS = [
   { key: "bao-lanh", label: "Bảo lãnh" },
 ];
 
+import type { MenuProps } from "antd";
+
 export default function Sidebar({ currentView, onChange }: Props) {
   const [collapsed, setCollapsed] = useState(false);
 
-  const handleMenuClick = (e: any) => {
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
     // Only trigger onChange for supported views
     if (["province", "district", "ward"].includes(e.key)) {
       onChange(e.key as ViewType);

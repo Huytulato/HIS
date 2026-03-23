@@ -81,6 +81,10 @@ public class AuthController {
 
   @PostMapping("/register")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+    if (!signUpRequest.getPassword().equals(signUpRequest.getConfirmPassword())) {
+      return ResponseEntity.badRequest().body(new MessageResponse("Error: Passwords do not match!"));
+    }
+
     if (userRepository.existsByUsername(signUpRequest.getUsername())) {
       return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
     }
