@@ -1,0 +1,64 @@
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.searchWrapper {
+  padding: 16px 16px 8px 16px;
+}
+
+.menuWrapper {
+  flex: 1;
+  overflow-y: auto;
+  
+  /* Scrollbar override */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+}
+
+.customMenu {
+  border-right: none !important;
+
+  /* Override Ant Design Item styles */
+  :global(.ant-menu-item) {
+    height: 48px !important;
+    line-height: 48px !important;
+    margin: 4px 12px !important;
+    padding-left: 16px !important;
+    border-radius: 8px !important;
+    color: #4b5563 !important;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  :global(.ant-menu-item-selected) {
+    background-color: #eef2ff !important;
+    color: #2563eb !important;
+    font-weight: 600;
+  }
+}
+
+.collapseBtn {
+  padding: 12px 16px;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #f9fafb;
+    color: #111827;
+  }
+}

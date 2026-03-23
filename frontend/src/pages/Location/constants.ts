@@ -1,0 +1,155 @@
+import { Province, District, Ward } from "./types";
+
+export const PROVINCES: Province[] = [
+  { id: "1", code: "01", name: "Thành phố Hà Nội" },
+  { id: "2", code: "79", name: "Thành phố Hồ Chí Minh" },
+  { id: "3", code: "48", name: "Thành phố Đà Nẵng" },
+  { id: "4", code: "31", name: "Thành phố Hải Phòng" },
+  { id: "5", code: "92", name: "Thành phố Cần Thơ" },
+];
+
+export const DISTRICTS: District[] = [
+  {
+    id: "1",
+    code: "H001",
+    name: "Ba Đình",
+    provinceId: "1",
+    provinceName: "Hà Nội",
+  },
+  {
+    id: "2",
+    code: "H002",
+    name: "Hoàn Kiếm",
+    provinceId: "1",
+    provinceName: "Hà Nội",
+  },
+  {
+    id: "3",
+    code: "D001",
+    name: "Hải Châu",
+    provinceId: "3",
+    provinceName: "Đà Nẵng",
+  },
+  {
+    id: "4",
+    code: "S001",
+    name: "Quận 1",
+    provinceId: "2",
+    provinceName: "TP. Hồ Chí Minh",
+  },
+  {
+    id: "5",
+    code: "H003",
+    name: "Tây Hồ",
+    provinceId: "1",
+    provinceName: "Hà Nội",
+  },
+  {
+    id: "6",
+    code: "S002",
+    name: "Bình Thạnh",
+    provinceId: "2",
+    provinceName: "TP. Hồ Chí Minh",
+  },
+  {
+    id: "7",
+    code: "D002",
+    name: "Sơn Trà",
+    provinceId: "3",
+    provinceName: "Đà Nẵng",
+  },
+  {
+    id: "8",
+    code: "H004",
+    name: "Cầu Giấy",
+    provinceId: "1",
+    provinceName: "Hà Nội",
+  },
+  {
+    id: "9",
+    code: "S003",
+    name: "Thủ Đức",
+    provinceId: "2",
+    provinceName: "TP. Hồ Chí Minh",
+  },
+  {
+    id: "10",
+    code: "H005",
+    name: "Đống Đa",
+    provinceId: "1",
+    provinceName: "Hà Nội",
+  },
+];
+
+export const WARDS: Ward[] = [
+  {
+    id: "1",
+    code: "XP001",
+    name: "Phường Bến Nghé",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "2",
+    code: "XP002",
+    name: "Phường Bến Thành",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "3",
+    code: "XP003",
+    name: "Phường Cầu Kho",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "4",
+    code: "XP004",
+    name: "Phường Đa Kao",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "5",
+    code: "XP005",
+    name: "Phường Tân Định",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "6",
+    code: "XP006",
+    name: "Phường Cô Giang",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "7",
+    code: "XP007",
+    name: "Phường Võ Thị Sáu",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "8",
+    code: "XP008",
+    name: "Phường Hàng Xanh",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "9",
+    code: "XP009",
+    name: "Phường Phường 1",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+  {
+    id: "10",
+    code: "XP010",
+    name: "Phường Phường 2",
+    districtId: "4",
+    districtName: "Quận 1",
+  },
+];

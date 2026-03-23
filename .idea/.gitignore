@@ -1,3 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+# Ignore frontend generated folders
+frontend/.agents/
+frontend/.stitch/

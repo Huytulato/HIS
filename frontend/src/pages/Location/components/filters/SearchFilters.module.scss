@@ -1,0 +1,56 @@
+.filtersContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.inputsGroup {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex: 1;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  max-width: 300px;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+  }
+}
+
+.formInput {
+  border-radius: 4px;
+  height: 36px;
+}
+
+.buttonsGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.btnImport {
+  height: 36px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.btnSearch {
+  height: 36px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}

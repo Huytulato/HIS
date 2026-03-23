@@ -1,0 +1,98 @@
+.tableWrapper {
+  margin-top: 16px;
+  
+  :global(.ant-table-thead > tr > th) {
+    background-color: #f0fdf4 !important; /* using light cyan/blue like mockup, actually looks like e0f2fe in my memory or f1f5f9 */
+    background-color: #f1f5f9 !important;
+    color: #111827;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    
+    &::before {
+      display: none !important; /* Hide column dividers */
+    }
+  }
+
+  :global(.ant-table-tbody > tr > td) {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 0 8px;
+  
+  .totalText {
+    font-size: 14px;
+    color: #4b5563;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .rightPagination {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Customize Ant Pagination */
+  :global(.ant-pagination) {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  :global(.ant-pagination-item), :global(.ant-pagination-prev), :global(.ant-pagination-next) {
+    border: none;
+    background: transparent;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    a {
+      color: #4b5563;
+    }
+  }
+
+  :global(.ant-pagination-item-active) {
+    background: transparent;
+    border: 1px solid #2563eb;
+    border-radius: 50%;
+    a {
+      color: #2563eb;
+      font-weight: 600;
+    }
+  }
+
+  .sizeChanger {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 4px 8px;
+    outline: none;
+    font-size: 14px;
+    color: #4b5563;
+  }
+
+  .quickJumper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    
+    input {
+      width: 40px;
+      height: 28px;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      text-align: center;
+      outline: none;
+    }
+  }
+}
